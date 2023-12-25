@@ -20,7 +20,7 @@ source code folder.
 My environment:
 * openSUSE Leap 15.5 (Linux x86_64)
 * unixODBC 2.3.9
-* FreeBASIC 1.10.0
+* FreeBASIC 1.10.1
 * ODBC driver: PostgreSQL
 
 The idea is that I think ODBC is a standard API, so I just need to modify
