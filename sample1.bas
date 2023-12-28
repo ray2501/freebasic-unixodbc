@@ -11,7 +11,11 @@
 #Include "unixodbc/sqlext.bi"
 #endif
 
-Dim henv As SQLHENV = 0
+#ifndef NULL
+#define NULL 0
+#endif
+
+Dim henv As SQLHENV = NULL
 Dim As Zstring * 256 driver
 Dim As Zstring * 256 attr 
 Dim As SQLSMALLINT driver_ret
@@ -41,7 +45,7 @@ While True
     End If    
 Wend
 
-If henv <> 0 Then
+If henv <> NULL Then
     SQLFreeHandle(SQL_HANDLE_ENV, henv)
 End If
 

@@ -5,9 +5,13 @@
 #Include "unixodbc/sql.bi"
 #Include "unixodbc/sqlext.bi"
 
-Dim henv As SQLHENV = 0
-Dim hdbc As SQLHDBC = 0
-Dim hstmt As SQLHSTMT = 0
+#ifndef NULL
+#define NULL 0
+#endif
+
+Dim henv As SQLHENV = NULL
+Dim hdbc As SQLHDBC = NULL
+Dim hstmt As SQLHSTMT = NULL
 Dim As Zstring * 16 dsn = "DSN=PostgreSQL;"
 Dim As SQLSMALLINT dwLength
 Dim As SQLRETURN retcode
@@ -22,7 +26,8 @@ SQLSetEnvAttr(henv, SQL_ATTR_ODBC_VERSION, Cast(SQLPOINTER, SQL_OV_ODBC3), SQL_I
 If SQLAllocHandle(SQL_HANDLE_DBC, henv, @hdbc) <> SQL_SUCCESS Then
     Print "Could not allocate connection handle."
 Else
-    retcode = SQLDriverConnect(hdbc, 0, dsn, SQL_NTS, 0, 0, @dwLength, SQL_DRIVER_COMPLETE)
+    retcode = SQLDriverConnect(hdbc, NULL, dsn, SQL_NTS, _
+                               NULL, 0, @dwLength, SQL_DRIVER_COMPLETE)
     If retcode <> SQL_SUCCESS And retcode <> SQL_SUCCESS_WITH_INFO Then
         Print "SQLDriverConnect failed."
     Else
@@ -56,16 +61,16 @@ Else
     End If
 End If
 
-If hstmt <> 0 Then
+If hstmt <> NULL Then
     SQLFreeHandle(SQL_HANDLE_STMT, hstmt)
 End If
 
-If hdbc <> 0 Then
+If hdbc <> NULL Then
     SQLDisconnect(hdbc)
     SQLFreeHandle(SQL_HANDLE_DBC, hdbc)
 End If
 
-If henv <> 0 Then
+If henv <> NULL Then
     SQLFreeHandle(SQL_HANDLE_ENV, henv)
 End If
 
