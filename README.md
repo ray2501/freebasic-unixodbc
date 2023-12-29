@@ -33,8 +33,8 @@ Changes:
 * Change pguidEvent from `const GUID ptr` to `const any ptr` (sqlext.bi)
 * Update sqltypes.bi types (SQLLEN, SQLULEN, SQLSETPOSIROW) and add more types
 ```
---- /usr/include/freebasic/win/sqltypes.bi      2023-12-12 10:00:10.000000000 +0800
-+++ sqltypes.bi 2023-12-24 18:44:01.813405117 +0800
+--- /usr/include/freebasic/win/sqltypes.bi      2023-12-25 17:20:46.000000000 +0800
++++ sqltypes.bi 2023-12-29 21:55:04.068580597 +0800
 @@ -15,6 +15,16 @@
 
  #pragma once
