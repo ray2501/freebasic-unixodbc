@@ -7,7 +7,7 @@ These files (odbcinst.bi, sql.bi, sqlext.bi, sqltypes.bi and sqlucode.bi)
 is from FreeBASIC builtin header files. I just try to modify it for my
 environment to write ODBC program by using FreeBASIC.
 
-Original files is MinGW header files and is placed in the Public Domain.
+Original files is MinGW-w64 header files and is placed in the Public Domain.
 Then FreeBASIC development team translated it to FreeBASIC header files (.bi).
 So related .bi files in `unixodbc` folder is placed in the Public Domain,
 or license is the same with original FreeBASIC ODBC API header files.
